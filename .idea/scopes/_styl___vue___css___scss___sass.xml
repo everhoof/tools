@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name=".styl, .vue, .css, .scss, .sass" pattern="file:*.styl||file:*.vue||file:*.css||file:*.scss||file:*.sass" />
+</component>

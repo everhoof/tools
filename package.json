@@ -1,0 +1,54 @@
+{
+  "name": "@everhoof/tools",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=12.14.1"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.js,.vue\" --ignore-path .gitignore .",
+    "lint:styles": "npx stylelint \"**/*.{css,styl,scss,sass,vue}\" --custom-syntax stylelint-plugin-stylus/custom-syntax --allow-empty-input",
+    "lint": "yarn lint:js && yarn lint:styles",
+    "format": "yarn lint:js --fix && yarn lint:styles --fix",
+    "mc": "node ./scripts/make-component.js"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "1.4.1",
+    "consola": "2.15.3",
+    "core-js": "3.16.0",
+    "nuxt": "2.15.7",
+    "nuxt-property-decorator": "^2.9.1",
+    "typed-vuex": "^0.2.0",
+    "vue": "2.6.14",
+    "vue-router": "3.5.2",
+    "vuex": "3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.8",
+    "@babel/eslint-parser": "7.14.7",
+    "@babel/plugin-proposal-private-property-in-object": "7.14.5",
+    "@babel/preset-env": "7.15.0",
+    "@intelrug/stylelint-plugin-stylus-idea": "git://github.com/intelrug/stylelint-plugin-stylus-idea.git#v0.1.0",
+    "@nuxt/types": "2.15.7",
+    "@nuxt/typescript-build": "2.1.0",
+    "@nuxtjs/eslint-config-typescript": "6.0.1",
+    "@nuxtjs/router": "1.6.1",
+    "@nuxtjs/style-resources": "1.2.0",
+    "@types/node": "14.17.4",
+    "eslint": "7.32.0",
+    "eslint-plugin-nuxt": "2.0.0",
+    "eslint-plugin-vue": "7.15.0",
+    "stylelint": "13.13.1",
+    "stylelint-config-standard": "22.0.0",
+    "stylelint-order": "4.1.0",
+    "stylelint-plugin-stylus": "0.11.0",
+    "stylus": "0.54.8",
+    "stylus-loader": "3.0.2",
+    "typescript": "4.2.4",
+    "webpack": "4.46.0"
+  }
+}

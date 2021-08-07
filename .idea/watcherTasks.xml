@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="$FileName$ --fix --custom-syntax stylelint-plugin-stylus/custom-syntax" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="*" />
+      <option name="immediateSync" value="false" />
+      <option name="name" value="Stylelint" />
+      <option name="output" value="$FileName$" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="$PROJECT_DIR$/node_modules/stylelint-plugin-stylus/node_modules/.bin/stylelint" />
+      <option name="runOnExternalChanges" value="false" />
+      <option name="scopeName" value=".styl, .vue, .css, .scss, .sass" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="" />
+      <envs />
+    </TaskOptions>
+  </component>
+</project>
