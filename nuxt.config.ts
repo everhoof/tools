@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-ignore
 export default {
   server: {
     port: 3040,
@@ -44,6 +46,7 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/router',
     '@nuxtjs/style-resources',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -62,4 +65,10 @@ export default {
   router: {
     middleware: ['authenticated'],
   },
+
+  /* eslint-disable */
+  serverMiddleware: [
+    { path: '/api', handler: '~/server-middleware/api-server.ts' },
+  ],
+  /* eslint-enable */
 };

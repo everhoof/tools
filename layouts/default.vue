@@ -1,8 +1,10 @@
 <template>
-  <div class="panel__layout">
+  <v-app class="panel__layout">
     <div class="panel__header" />
-    <div class="panel__wrapper" />
-  </div>
+    <div class="panel__wrapper">
+      <nuxt />
+    </div>
+  </v-app>
 </template>
 
 <script lang="ts">

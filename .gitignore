@@ -64,3 +64,5 @@ sw.*
 
 # macOS
 .DS_Store
+
+static/preview
