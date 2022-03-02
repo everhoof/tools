@@ -193,7 +193,7 @@ export default class PreviewPage extends Vue {
         key: 'tabun',
         name: 'Табун',
         image: require('~/assets/images/preview/tabun.png'),
-        size: '1590x650',
+        size: '1950x720',
       },
       {
         key: 'youtube_rc',
@@ -205,7 +205,7 @@ export default class PreviewPage extends Vue {
         key: 'tabun_rc',
         name: 'Табун КЧ',
         image: require('~/assets/images/preview/tabun_rc.png'),
-        size: '1590x650',
+        size: '1950x720',
       },
     ],
   };
@@ -362,12 +362,6 @@ export default class PreviewPage extends Vue {
       &_overlay
         mix-blend-mode overlay
 
-    &_type
-      &_tabun
-        top 94px
-        left 135px
-        zoom .79
-
   &__perspective
     position relative
     width 100%
@@ -384,6 +378,7 @@ export default class PreviewPage extends Vue {
     justify-content center
     align-items center
     flex-wrap wrap
+    flex-direction column
     font-family 'CoalhandLuke Pro', sans-serif
     font-size 80px
     text-align center
