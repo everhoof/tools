@@ -67,7 +67,7 @@ jobs:
           ecosystem.config.js
           environment.js
           environment-parse.js
-          nuxt.config.js
+          nuxt.config.ts
           package.json
           router.js
           tsconfig.json
