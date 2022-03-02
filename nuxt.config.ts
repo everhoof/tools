@@ -1,8 +1,8 @@
-// @ts-ignore
-// @ts-ignore
+import './environment';
+
 export default {
   server: {
-    port: 3040,
+    port: process.env.APP_PORT,
     host: '0.0.0.0',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -43,7 +43,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/dotenv',
     '@nuxtjs/router',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
@@ -75,4 +74,8 @@ export default {
     { path: '/api', handler: '~/server-middleware/api-server.ts' },
   ],
   /* eslint-enable */
+
+  publicRuntimeConfig: {
+    apiHttpEndpoint: process.env.API_HTTP,
+  },
 };

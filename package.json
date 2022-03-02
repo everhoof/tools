@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=12.14.1"
+    "node": ">=14.18.1"
   },
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "node -r ./environment.js ./node_modules/nuxt/bin/nuxt.js start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.js,.vue\" --ignore-path .gitignore .",
     "lint:styles": "npx stylelint \"**/*.{css,styl,scss,sass,vue}\" --custom-syntax stylelint-plugin-stylus/custom-syntax --allow-empty-input",
@@ -17,10 +17,10 @@
     "mc": "node ./scripts/make-component.js"
   },
   "dependencies": {
-    "@nuxtjs/dotenv": "1.4.1",
     "body-parser": "^1.19.0",
     "consola": "2.15.3",
     "core-js": "3.16.0",
+    "dotenv-flow": "^3.2.0",
     "express": "^4.17.1",
     "luxon": "^2.0.1",
     "nuxt": "2.15.7",
@@ -46,6 +46,7 @@
     "@nuxtjs/vuetify": "^1.12.1",
     "@types/luxon": "^1.27.1",
     "@types/node": "14.17.4",
+    "cross-env": "^7.0.3",
     "eslint": "7.32.0",
     "eslint-plugin-nuxt": "2.0.0",
     "eslint-plugin-vue": "7.15.0",

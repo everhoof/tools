@@ -320,7 +320,7 @@ export default class PreviewPage extends Vue {
     const body = { page, size: this.template.size };
 
     try {
-      const response = await fetch(process.env.API_HTTP + '/preview/generate', {
+      const response = await fetch(this.$nuxt.$config.apiHttpEndpoint + '/preview/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
