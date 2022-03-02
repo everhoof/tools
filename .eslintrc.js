@@ -17,6 +17,8 @@ module.exports = {
   ],
   plugins: [],
   rules: {
+    'no-console': 'off',
+    'no-debugger': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'arrow-parens': ['error', 'always'],
     'class-methods-use-this': 'off',
