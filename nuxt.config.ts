@@ -66,6 +66,10 @@ export default {
     middleware: ['authenticated'],
   },
 
+  vuetify: {
+    optionsPath: './vuetify.options.js',
+  },
+
   /* eslint-disable */
   serverMiddleware: [
     { path: '/api', handler: '~/server-middleware/api-server.ts' },

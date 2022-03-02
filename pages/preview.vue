@@ -398,7 +398,7 @@ export default class PreviewPage extends Vue {
     right 0
     bottom 0
     width 400px
-    background #e8e8e8
+    background #242424
 
   &_style
     &_borders
