@@ -12,6 +12,7 @@ import '~/assets/stylus/normalize.styl';
 import '~/assets/stylus/grid.styl';
 import '~/assets/stylus/global.styl';
 import '~/assets/stylus/colors.styl';
+import '~/assets/stylus/fonts.styl';
 import { Component, Vue } from 'nuxt-property-decorator';
 
 @Component
