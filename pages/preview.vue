@@ -85,10 +85,18 @@
           />
           <v-slider
             v-model="settings.fontSize"
-            :min="40"
+            :min="20"
             :max="200"
             :step="1"
             label="Размер текста"
+            thumb-label="always"
+          />
+          <v-slider
+            v-model="settings.fontSizeSmall"
+            :min="20"
+            :max="200"
+            :step="1"
+            label="Размер мал. текста"
             thumb-label="always"
           />
           <v-slider
@@ -213,12 +221,13 @@ export default class PreviewPage extends Vue {
   defaultSettings: PreviewSettings = {
     template: 'youtube',
     date: '01/01/1970',
-    text: 'Guest',
+    text: 'Guest\n<small>Small text</small>',
     lineHeight: 1.2,
     textAlign: 'center',
     fontSize: 80,
-    textOpacity: 40,
-    dateOpacity: 40,
+    fontSizeSmall: 40,
+    textOpacity: 55,
+    dateOpacity: 55,
     horizontalAlignment: 0,
     verticalAlignment: 0,
     borders: false,
@@ -245,7 +254,9 @@ export default class PreviewPage extends Vue {
   }
 
   get textWithBreaks(): string {
-    return this.settings.text.replace(/\n/g, '<br>');
+    return this.settings.text
+      .replace(/\n/g, '<br>')
+      .replace(/<small>(.*?)<\/small>/, `<small style="font-size: ${this.settings.fontSizeSmall}px">$1</small>`);
   }
 
   get template(): Record<string, unknown> {
@@ -266,6 +277,7 @@ export default class PreviewPage extends Vue {
     if (query.textAlign) { this.settings.textAlign = query.textAlign.toString(); }
     if (query.lineHeight) { this.settings.lineHeight = parseFloat(query.lineHeight.toString()) || this.settings.lineHeight; }
     if (query.fontSize) { this.settings.fontSize = parseInt(query.fontSize.toString()) || this.settings.fontSize; }
+    if (query.fontSizeSmall) { this.settings.fontSizeSmall = parseInt(query.fontSizeSmall.toString()) || this.settings.fontSizeSmall; }
     if (query.textOpacity) { this.settings.textOpacity = parseFloat(query.textOpacity.toString()) || this.settings.textOpacity; }
     if (query.dateOpacity) { this.settings.dateOpacity = parseFloat(query.dateOpacity.toString()) || this.settings.dateOpacity; }
     if (query.verticalAlignment) { this.settings.verticalAlignment = parseInt(query.verticalAlignment.toString()) || this.settings.verticalAlignment; }
@@ -283,6 +295,7 @@ export default class PreviewPage extends Vue {
     };
     settings.lineHeight = this.settings.lineHeight.toString();
     settings.fontSize = this.settings.fontSize.toString();
+    settings.fontSizeSmall = this.settings.fontSizeSmall.toString();
     settings.textOpacity = this.settings.textOpacity.toString();
     settings.dateOpacity = this.settings.dateOpacity.toString();
     settings.verticalAlignment = this.settings.verticalAlignment.toString();
@@ -384,6 +397,9 @@ export default class PreviewPage extends Vue {
     text-align center
     opacity .8
 
+    & small
+      padding 20px 0 10px
+
   &__date
     position absolute
     right 100px
@@ -397,6 +413,7 @@ export default class PreviewPage extends Vue {
     top 0
     right 0
     bottom 0
+    overflow hidden auto
     width 400px
     background #242424
 

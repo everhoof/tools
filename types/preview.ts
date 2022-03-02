@@ -5,6 +5,7 @@ export interface PreviewSettings {
   lineHeight: number;
   textAlign: string;
   fontSize: number;
+  fontSizeSmall: number;
   textOpacity: number;
   dateOpacity: number;
   horizontalAlignment: number;
