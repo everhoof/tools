@@ -1,9 +1,8 @@
-import path from 'path';
-import { Request, Response } from 'express';
-import Pageres from 'pageres';
-import { DateTime } from 'luxon';
+const path = require('path');
+const Pageres = require('pageres');
+const { DateTime } = require('luxon');
 
-async function generate(req: Request, res: Response): Promise<any> {
+async function generate(req, res) {
   res.setHeader('Content-Type', 'application/json');
 
   const dateTimeString = DateTime.utc().toFormat('yyyy-MM-dd_HH-mm-ss');
@@ -38,4 +37,4 @@ async function generate(req: Request, res: Response): Promise<any> {
   }
 }
 
-export { generate };
+module.exports = { generate };

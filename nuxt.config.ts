@@ -70,9 +70,7 @@ export default {
   },
 
   /* eslint-disable */
-  serverMiddleware: [
-    { path: '/api', handler: '~/server-middleware/api-server.ts' },
-  ],
+  serverMiddleware: ['~/server-middleware/api-server.js'],
   /* eslint-enable */
 
   publicRuntimeConfig: {
