@@ -136,9 +136,23 @@
               class="mr-4 flex-grow-1"
               :loading="downloading"
               color="primary"
-              @click="screenshot"
+              @click="screenshot(false)"
             >
-              Скачать
+              PNG
+              <v-icon
+                right
+                dark
+              >
+                mdi-cloud-download
+              </v-icon>
+            </v-btn>
+            <v-btn
+              class="mr-4 flex-grow-1"
+              :loading="downloading"
+              color="primary"
+              @click="screenshot(true)"
+            >
+              JPG
               <v-icon
                 right
                 dark
@@ -311,13 +325,17 @@ export default class PreviewPage extends Vue {
     return value ? 'yes' : 'no';
   }
 
-  async screenshot(): Promise<void> {
+  async screenshot(compress = false): Promise<void> {
     if (this.downloading) { return; }
 
     this.downloading = true;
 
     const page = window.location.href.replace(/controls=\w+/, 'controls=no');
-    const body = { page, size: this.template.size };
+    const body = {
+      page,
+      size: this.template.size,
+      compress,
+    };
 
     try {
       const response = await fetch('/api/preview/generate', {
