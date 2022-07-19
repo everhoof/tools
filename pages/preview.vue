@@ -390,7 +390,7 @@ export default class PreviewPage extends Vue {
   position relative
   display block
   padding 0 400px 0 0
-  color #fff
+  color #ffffff
 
   red
     color #ff454b
@@ -423,8 +423,7 @@ export default class PreviewPage extends Vue {
     display flex
     justify-content center
     align-items center
-    flex-wrap wrap
-    flex-direction column
+    flex-flow column wrap
     font-family 'CoalhandLuke Pro', sans-serif
     font-size 80px
     text-align center

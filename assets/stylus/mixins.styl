@@ -42,13 +42,6 @@ padding-y($padding)
   padding-top $padding
   padding-bottom $padding
 
-// Set one static retina image
-retinaBackground($image, $ext = 'png')
-  background-image url('../images/' + $image + '.' + $ext)
-
-  @media (-webkit-min-device-pixel-ratio 2), (min-resolution 192dpi)
-    background-image url('../images/' + $image + '@2x.' + $ext)
-
 placeholder($color, $fontSize)
   &::-webkit-input-placeholder
     color $color
@@ -92,7 +85,7 @@ triangle(pos = 'top', c = #a5f, s1 = 20, s2 = 20, s3 = false)
     else
       border-width 0 (s1 / 2) px s2 px (s1 / 2) px
 
-    border-color transparent transparent c transparent
+    border-color transparent transparent c
   else if (pos == 'top-right')
     border-width 0 s1 px s2 px 0
     border-color transparent c transparent transparent
@@ -105,14 +98,14 @@ triangle(pos = 'top', c = #a5f, s1 = 20, s2 = 20, s3 = false)
     border-color transparent transparent transparent c
   else if (pos == 'bottom-right')
     border-width 0 0 s2 px s1 px
-    border-color transparent transparent c transparent
+    border-color transparent transparent c
   else if (pos == 'bottom')
     if (s3)
       border-width s3 px s2 px 0 s1 px
     else
       border-width 0 (s1 / 2) px s2 px (s1 / 2) px
 
-    border-color c transparent transparent transparent
+    border-color c transparent transparent
   else if (pos == 'bottom-left')
     border-width s2 px 0 0 s1 px
     border-color transparent transparent transparent c
@@ -125,4 +118,4 @@ triangle(pos = 'top', c = #a5f, s1 = 20, s2 = 20, s3 = false)
     border-color transparent c transparent transparent
   else if (pos == 'top-left')
     border-width s2 px s1 px 0 0
-    border-color c transparent transparent transparent
+    border-color c transparent transparent
