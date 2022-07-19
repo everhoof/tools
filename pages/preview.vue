@@ -245,7 +245,7 @@ export default class PreviewPage extends Vue {
     template: 'youtube',
     date: '01/01/1970',
     text: 'Guest\n<small>Small text</small>',
-    left: 'Интервью\nНовости\nСказки со дна',
+    left: '',
     lineHeight: 1.2,
     textAlign: 'center',
     fontSize: 80,
