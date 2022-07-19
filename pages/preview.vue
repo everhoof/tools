@@ -22,9 +22,7 @@
           }"
           v-html="textWithBreaks"
         />
-        <span class="preview__date">
-          {{ settings.date }}
-        </span>
+        <span class="preview__date" v-html="settings.date" />
       </div>
     </div>
     <div
@@ -50,9 +48,8 @@
           :style="{
             opacity: settings.dateOpacity / 100,
           }"
-        >
-          {{ settings.date }}
-        </span>
+          v-html="settings.date"
+        />
       </div>
     </div>
     <div v-if="settings.controls" class="preview__aside">
