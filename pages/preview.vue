@@ -392,6 +392,9 @@ export default class PreviewPage extends Vue {
   padding 0 400px 0 0
   color #fff
 
+  red
+    color #ff454b
+
   &__perspective-wrapper
     position absolute
     top 27px
