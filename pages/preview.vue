@@ -20,9 +20,10 @@
             marginTop: settings.verticalAlignment + 'px',
             marginLeft: settings.horizontalAlignment + 'px',
           }"
-          v-html="textWithBreaks"
+          v-html="textWithBreaks(settings.text)"
         />
         <span class="preview__date" v-html="settings.date" />
+        <span class="preview__left" v-html="textWithBreaks(settings.left)" />
       </div>
     </div>
     <div
@@ -41,7 +42,7 @@
             marginTop: settings.verticalAlignment + 'px',
             marginLeft: settings.horizontalAlignment + 'px',
           }"
-          v-html="textWithBreaks"
+          v-html="textWithBreaks(settings.text)"
         />
         <span
           class="preview__date"
@@ -50,6 +51,13 @@
           }"
           v-html="settings.date"
         />
+        <span
+          class="preview__left"
+          :style="{
+            opacity: settings.textOpacity / 100,
+          }"
+          v-html="textWithBreaks(settings.left)"
+        />
       </div>
     </div>
     <div v-if="settings.controls" class="preview__aside">
@@ -57,7 +65,6 @@
         <v-container>
           <v-select
             v-model="settings.template"
-            class="mb-10"
             :items="options.template"
             item-text="name"
             item-value="key"
@@ -71,6 +78,11 @@
             v-model="settings.text"
             label="Текст"
             rows="3"
+          />
+          <v-textarea
+            v-model="settings.left"
+            label="Текст слева"
+            rows="1"
           />
           <v-select
             v-model="settings.textAlign"
@@ -233,6 +245,7 @@ export default class PreviewPage extends Vue {
     template: 'youtube',
     date: '01/01/1970',
     text: 'Guest\n<small>Small text</small>',
+    left: 'Интервью\nНовости\nСказки со дна',
     lineHeight: 1.2,
     textAlign: 'center',
     fontSize: 80,
@@ -264,12 +277,6 @@ export default class PreviewPage extends Vue {
     }
   }
 
-  get textWithBreaks(): string {
-    return this.settings.text
-      .replace(/\n/g, '<br>')
-      .replace(/<small>(.*?)<\/small>/, `<small style="font-size: ${this.settings.fontSizeSmall}px">$1</small>`);
-  }
-
   get template(): Record<string, unknown> {
     return this.options.template.find((t) => t.key === this.settings.template)!;
   }
@@ -280,11 +287,18 @@ export default class PreviewPage extends Vue {
     this.setSettingsFromQuery();
   }
 
+  textWithBreaks(text: string): string {
+    return text
+      .replace(/\n/g, '<br>')
+      .replace(/<small>(.*?)<\/small>/, `<small style="font-size: ${this.settings.fontSizeSmall}px">$1</small>`);
+  }
+
   setSettingsFromQuery(): void {
     const query = this.$route.query;
     if (query.template) { this.settings.template = query.template.toString(); }
     if (query.date) { this.settings.date = query.date.toString(); }
     if (query.text) { this.settings.text = query.text.toString(); }
+    if (query.left) { this.settings.left = query.left.toString(); }
     if (query.textAlign) { this.settings.textAlign = query.textAlign.toString(); }
     if (query.lineHeight) { this.settings.lineHeight = parseFloat(query.lineHeight.toString()) || this.settings.lineHeight; }
     if (query.fontSize) { this.settings.fontSize = parseInt(query.fontSize.toString()) || this.settings.fontSize; }
@@ -302,6 +316,7 @@ export default class PreviewPage extends Vue {
       template: this.settings.template,
       date: this.settings.date,
       text: this.settings.text,
+      left: this.settings.left,
       textAlign: this.settings.textAlign,
     };
     settings.lineHeight = this.settings.lineHeight.toString();
@@ -422,6 +437,15 @@ export default class PreviewPage extends Vue {
     font-family 'CoalhandLuke Pro', sans-serif
     font-size 50px
     font-weight 400
+
+  &__left
+    position absolute
+    left 30px
+    bottom 40px
+    font-family 'CoalhandLuke Pro', sans-serif
+    font-size 34px
+    line-height 1.2
+    text-align left
 
   &__aside
     position fixed

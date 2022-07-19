@@ -2,6 +2,7 @@ export interface PreviewSettings {
   template: string;
   date: string;
   text: string;
+  left: string;
   lineHeight: number;
   textAlign: string;
   fontSize: number;
