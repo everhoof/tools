@@ -37,7 +37,7 @@ async function generate(req, res) {
       const image = imagePool.ingestImage(screenshots[0].buffer);
       await image.encode({
         mozjpeg: {
-          quality: 98,
+          quality: 94,
           baseline: false,
           arithmetic: false,
           progressive: true,
@@ -47,10 +47,10 @@ async function generate(req, res) {
           quant_table: 3,
           trellis_multipass: true,
           trellis_opt_zero: true,
-          trellis_opt_table: false,
-          trellis_loops: 50,
-          auto_subsample: true,
-          chroma_subsample: 3,
+          trellis_opt_table: true,
+          trellis_loops: 15,
+          auto_subsample: false,
+          chroma_subsample: 2,
           separate_chroma_quality: true,
           chroma_quality: 70,
         },
