@@ -1,8 +1,6 @@
-import './environment';
-
 export default {
   server: {
-    port: process.env.APP_PORT,
+    port: 3000,
     host: '0.0.0.0',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head

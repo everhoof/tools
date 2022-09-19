@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "nuxt build",
-    "start": "node -r ./environment.js ./node_modules/nuxt/bin/nuxt.js start",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.js,.vue\" --ignore-path .gitignore .",
     "lint:styles": "npx stylelint \"**/*.{css,styl,scss,sass,vue}\" --allow-empty-input",
@@ -21,7 +21,6 @@
     "body-parser": "^1.19.0",
     "consola": "2.15.3",
     "core-js": "3.16.0",
-    "dotenv-flow": "^3.2.0",
     "express": "^4.17.1",
     "luxon": "^2.0.1",
     "nuxt": "2.15.7",

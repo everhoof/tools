@@ -65,8 +65,6 @@ jobs:
           .env.production
           deploy.sh
           ecosystem.config.js
-          environment.js
-          environment-parse.js
           nuxt.config.ts
           package.json
           router.js
